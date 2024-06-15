@@ -1,0 +1,9 @@
+# ninja log v6
+18	309	7401557898287381	E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Arcades_autogen/timestamp	a68ef85cdf4de4b8
+18	309	7401557898287381	Arcades_autogen/timestamp	a68ef85cdf4de4b8
+310	1841	7401557901201357	CMakeFiles/Arcades.dir/mainmenu.cpp.obj	1de5fcc5a782e5f7
+18	309	7401557898287381	Arcades_autogen/mocs_compilation.cpp	a68ef85cdf4de4b8
+18	309	7401557898287381	E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Arcades_autogen/mocs_compilation.cpp	a68ef85cdf4de4b8
+841	2743	7401524194833972	CMakeFiles/Arcades.dir/Arcades_autogen/mocs_compilation.cpp.obj	f5fd031dbc579bf
+846	2874	7401524194944003	CMakeFiles/Arcades.dir/main.cpp.obj	a60c128da0b2fdcb
+1841	2252	7401557916516833	Arcades.exe	f22f6df12e665bc9

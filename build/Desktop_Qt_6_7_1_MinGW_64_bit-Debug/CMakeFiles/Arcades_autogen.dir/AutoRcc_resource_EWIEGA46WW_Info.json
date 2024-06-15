@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Arcades_autogen",
+	"CMAKE_BINARY_DIR" : "E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "E:/projects/Arcades/Arcades",
+	"CMAKE_SOURCE_DIR" : "E:/projects/Arcades/Arcades",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Arcades_autogen/include",
+	"INPUTS" : [],
+	"LOCK_FILE" : "E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/CMakeFiles/Arcades_autogen.dir/AutoRcc_resource_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resource" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resource.cpp",
+	"RCC_EXECUTABLE" : "E:/Qt/6.7.1/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/CMakeFiles/Arcades_autogen.dir/AutoRcc_resource_EWIEGA46WW_Used.txt",
+	"SOURCE" : "E:/projects/Arcades/Arcades/resource.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

@@ -6,26 +6,203 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>900</width>
+    <height>701</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainMenu</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(42, 42, 41);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>11</y>
+      <width>878</width>
+      <height>661</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>260</y>
+        <width>431</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
+       <property name="spacing">
+        <number>7</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  color: #FFFFFF;
+  font-family: &quot;Roobert&quot;, &quot;Segoe UI&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  min-height: 20px;
+  padding: 16px 24px;
+  text-align: center;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  width: 100%;
+}
+
+QPushButton:hover {
+  background-color: #333333;
+  border: 2px solid #555555;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  margin: 0 0 6px 0;
+}
+
+QPushButto:pressed {
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  box-shadow: none;
+  margin: 0 0 8px 0;
+}
+
+QPushButton {
+  outline: none; 
+}</string>
+         </property>
+         <property name="text">
+          <string>Choose game</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  color: #FFFFFF;
+  font-family: &quot;Roobert&quot;, &quot;Segoe UI&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  min-height: 20px;
+  padding: 16px 24px;
+  text-align: center;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  width: 100%;
+}
+
+QPushButton:hover {
+  background-color: #333333;
+  border: 2px solid #555555;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  margin: 0 0 6px 0;
+}
+
+QPushButto:pressed {
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  box-shadow: none;
+  margin: 0 0 8px 0;
+}
+
+QPushButton {
+  outline: none; 
+}</string>
+         </property>
+         <property name="text">
+          <string>Sound settings</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  color: #FFFFFF;
+  font-family: &quot;Roobert&quot;, &quot;Segoe UI&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  min-height: 20px;
+  padding: 16px 24px;
+  text-align: center;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  width: 100%;
+}
+
+QPushButton:hover {
+  background-color: #333333;
+  border: 2px solid #555555;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.25);
+  margin: 0 0 6px 0;
+}
+
+QPushButto:pressed {
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  box-shadow: none;
+  margin: 0 0 -8px 0;
+}
+
+QPushButton {
+  outline: none; 
+}</string>
+         </property>
+         <property name="text">
+          <string>Exit</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2"/>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>900</width>
      <height>26</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainMenu</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>489</x>
+     <y>458</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>562</x>
+     <y>27</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
