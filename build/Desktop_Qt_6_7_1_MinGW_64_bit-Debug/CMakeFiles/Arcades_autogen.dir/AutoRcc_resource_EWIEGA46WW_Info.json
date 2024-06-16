@@ -7,7 +7,12 @@
 	"CROSS_CONFIG" : false,
 	"GENERATOR" : "Ninja",
 	"INCLUDE_DIR" : "E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Arcades_autogen/include",
-	"INPUTS" : [],
+	"INPUTS" : 
+	[
+		"E:/projects/Arcades/Arcades/icons/tocken blue.png",
+		"E:/projects/Arcades/Arcades/icons/profile-user.png",
+		"E:/projects/Arcades/Arcades/font/PressStart2P-Regular.ttf"
+	],
 	"LOCK_FILE" : "E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/CMakeFiles/Arcades_autogen.dir/AutoRcc_resource_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,
 	"OPTIONS" : [ "--no-zstd", "-name", "resource" ],

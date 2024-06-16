@@ -1,1 +1,9 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/font">
+        <file>font/PressStart2P-Regular.ttf</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file>icons/profile-user.png</file>
+        <file>icons/tocken blue.png</file>
+    </qresource>
+</RCC>
