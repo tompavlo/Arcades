@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-61a43fbef2d206df3f3c.json",
+					"jsonFile" : "directory-.-Debug-5f8e2a62c57bf29ff151.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Arcades::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Arcades-Debug-eab5c3acdbd95f1827d5.json",
+					"jsonFile" : "target-Arcades-Debug-6939e1e0778dd270ea12.json",
 					"name" : "Arcades",
 					"projectIndex" : 0
 				},

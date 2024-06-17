@@ -27,6 +27,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         resource.qrc
         clickablelabel.h clickablelabel.cpp
         firstinitialisation.h firstinitialisation.cpp firstinitialisation.ui
+        usersmanipulation.h usersmanipulation.cpp usersmanipulation.ui
 
     )
 # Define target properties for Android with Qt 6 as:

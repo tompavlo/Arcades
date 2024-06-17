@@ -19,6 +19,7 @@ firstInitialisation::firstInitialisation(QWidget *parent)
     ui->label_2->setFont(pixelFont);
     ui->lineEdit->setFont(pixelFont);
     ui->pushButton->setFont(pixelFont);
+    this->setWindowTitle("Arcades");
 
 }
 
@@ -29,8 +30,8 @@ firstInitialisation::~firstInitialisation()
 
 void firstInitialisation::on_pushButton_clicked()
 {
-    QString username = ui->lineEdit->text();
-    if(username==""){
+    QString username = ui->lineEdit->text().trimmed();
+    if(username.isEmpty()){
         QMessageBox error;
         error.setText("Username cannot be empy!");
         error.setIcon(QMessageBox::Critical);

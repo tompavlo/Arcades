@@ -1,0 +1,31 @@
+#ifndef USERSMANIPULATION_H
+#define USERSMANIPULATION_H
+
+#include <QDialog>
+#include <QtSql>
+
+namespace Ui {
+class UsersManipulation;
+}
+
+class UsersManipulation : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit UsersManipulation(QWidget *parent = nullptr);
+    ~UsersManipulation();
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+private:
+    Ui::UsersManipulation *ui;
+    QSqlTableModel* model;
+};
+
+#endif // USERSMANIPULATION_H

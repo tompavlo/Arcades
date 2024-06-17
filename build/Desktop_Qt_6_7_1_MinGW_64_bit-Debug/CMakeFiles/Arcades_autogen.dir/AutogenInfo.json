@@ -368,6 +368,12 @@
 			"MU",
 			"EWIEGA46WW/moc_mainmenu.cpp",
 			null
+		],
+		[
+			"E:/projects/Arcades/Arcades/usersmanipulation.h",
+			"MU",
+			"EWIEGA46WW/moc_usersmanipulation.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -446,7 +452,8 @@
 		[ "E:/projects/Arcades/Arcades/clickablelabel.cpp", "MU", null ],
 		[ "E:/projects/Arcades/Arcades/firstinitialisation.cpp", "MU", null ],
 		[ "E:/projects/Arcades/Arcades/main.cpp", "MU", null ],
-		[ "E:/projects/Arcades/Arcades/mainmenu.cpp", "MU", null ]
+		[ "E:/projects/Arcades/Arcades/mainmenu.cpp", "MU", null ],
+		[ "E:/projects/Arcades/Arcades/usersmanipulation.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

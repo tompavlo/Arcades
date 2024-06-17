@@ -2,3 +2,4 @@
 #include "EWIEGA46WW/moc_clickablelabel.cpp"
 #include "EWIEGA46WW/moc_firstinitialisation.cpp"
 #include "EWIEGA46WW/moc_mainmenu.cpp"
+#include "EWIEGA46WW/moc_usersmanipulation.cpp"

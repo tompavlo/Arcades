@@ -3,6 +3,7 @@
 #include <QFontDatabase>
 #include <QtSql>
 #include "clickablelabel.h"
+#include "usersmanipulation.h"
 
 MainMenu::MainMenu(QWidget *parent)
     : QMainWindow(parent)
@@ -10,6 +11,8 @@ MainMenu::MainMenu(QWidget *parent)
 
 {
     ui->setupUi(this);
+    this->setWindowTitle("Arcades");
+
     QSqlDatabase data = QSqlDatabase::addDatabase("QSQLITE");
     QString dbPath = "./../../db/users.db";
     data.setDatabaseName(dbPath);
@@ -29,7 +32,7 @@ MainMenu::MainMenu(QWidget *parent)
 
     QPixmap userIcon(":/icon/icons/profile-user.png");
     ClickableLabel* clickableLabel= new ClickableLabel(ui->page);
-    clickableLabel->setGeometry(8, 604, 72, 96);
+    clickableLabel->setGeometry(8, 594, 72, 96);
     userIcon=userIcon.scaled(clickableLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     clickableLabel->setPixmap(userIcon);
 
@@ -53,7 +56,9 @@ void MainMenu::on_pushButton_clicked()
 }
 
 void MainMenu::onLabelClicked(){
-    this->close();
+    UsersManipulation* users = new UsersManipulation(this);
+    users->setModal(true);
+    users->show();
 }
 
 

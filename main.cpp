@@ -7,15 +7,13 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainMenu w;
+    w.setFixedSize(1000,766);
+
+
     QSqlDatabase data = QSqlDatabase::addDatabase("QSQLITE");
     QString dbPath = "./../../db/users.db";
     data.setDatabaseName(dbPath);
-    qDebug() << "Attempting to open database at path:" << dbPath;
-    if (!data.open()) {
-        qDebug() << "Database connection error:" << data.lastError().text();
-    } else {
-        qDebug() << "Database connection successful.";
-    }
+    data.open();
 
     QSqlQuery query(data);
     query.exec("SELECT COUNT(*) FROM users;");
@@ -26,17 +24,9 @@ int main(int argc, char *argv[])
         QSqlDatabase data = QSqlDatabase::addDatabase("QSQLITE");
         QString dbPath = "./../../db/users.db";
         data.setDatabaseName(dbPath);
-        qDebug() << "Attempting to open database at path:" << dbPath;
-        if (!data.open()) {
-            qDebug() << "Database connection error:" << data.lastError().text();
-        } else {
-            qDebug() << "Database connection successful.";
-        }
+        data.open();
         QSqlQuery query2(data);
-        if (!query2.exec("SELECT COUNT(*) FROM users;")) {
-            qDebug() << "SQL query execution error:" << query2.lastError().text();
-            return -1;  // Exit if query execution fails
-        }
+        query2.exec("SELECT COUNT(*) FROM users;");
         if (query2.next() && !(query2.value(0).toInt() == 0)){
             w.show();
         }
