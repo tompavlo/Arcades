@@ -8,20 +8,12 @@
 MainMenu::MainMenu(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainMenu)
+     ,data(QSqlDatabase::database("MainConnection"))
 
 {
     ui->setupUi(this);
     this->setWindowTitle("Arcades");
 
-    QSqlDatabase data = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbPath = "./../../db/users.db";
-    data.setDatabaseName(dbPath);
-    qDebug() << "Attempting to open database at path:" << dbPath;
-    if (!data.open()) {
-        qDebug() << "Database connection error:" << data.lastError().text();
-    } else {
-        qDebug() << "Database connection successful.";
-    }
 
     int id = QFontDatabase::addApplicationFont(":/font/font/PressStart2P-Regular.ttf");
     QString family = QFontDatabase::applicationFontFamilies(id).at(0);
@@ -42,6 +34,7 @@ MainMenu::MainMenu(QWidget *parent)
     ui->tokenValue->setFont(pixelFont);
 
     connect(clickableLabel, &ClickableLabel::clicked, this, &MainMenu::onLabelClicked);
+    updateTokensView();
 
 }
 
@@ -57,8 +50,36 @@ void MainMenu::on_pushButton_clicked()
 
 void MainMenu::onLabelClicked(){
     UsersManipulation* users = new UsersManipulation(this);
+    connect(users, &UsersManipulation::tokenValueChanged, this, &MainMenu::updateTokensView);
     users->setModal(true);
     users->show();
+}
+
+void MainMenu::updateTokensView(){
+    QSettings settings("Tompavlo", "Arcades");
+    QString curUser = settings.value("lastChoosenUser", "").toString();
+    if(curUser.isEmpty()){
+        ui->tokenValue->setText("0");
+        return;
+    }
+    if (!data.isValid()) {
+        qDebug() << "Database connection is not valid";
+    }
+    if (data.isOpen()){
+        qDebug()<<"Db is open";
+    }
+    else{
+        qDebug()<<"DB is closed"<<data.lastError();
+    }
+    QSqlQuery query(data);
+    query.prepare("SELECT tokens FROM users where id = :id");
+    query.bindValue(":id", curUser);
+    if(query.exec()){
+        if(query.next()){
+            ui->tokenValue->setText(query.value(0).toString());
+        }
+    }
+    data.lastError();
 }
 
 

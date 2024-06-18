@@ -18,16 +18,10 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QListView" name="listView">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Ignored" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
+    <widget class="QTableView" name="tableView">
      <property name="styleSheet">
-      <string notr="true">background-color:rgb(216,216,216);
-</string>
+      <string notr="true">background-color:rgb(220,220,220);
+text-align: center;</string>
      </property>
     </widget>
    </item>
@@ -57,13 +51,20 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item alignment="Qt::AlignBottom">
       <widget class="QPushButton" name="pushButton">
+       <property name="font">
+        <font>
+         <family>Fixedsys</family>
+         <pointsize>-1</pointsize>
+         <fontweight>DemiBold</fontweight>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton{
   background-color: #000000;
   border: 2px solid #1A1A1A;
   border-radius: 15px;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   margin: 0;
   min-height: 14px;
@@ -90,19 +91,26 @@ QPushButton {
 }</string>
        </property>
        <property name="text">
-        <string>Add</string>
+        <string>ADD</string>
        </property>
       </widget>
      </item>
      <item alignment="Qt::AlignBottom">
       <widget class="QPushButton" name="pushButton_2">
+       <property name="font">
+        <font>
+         <family>Fixedsys</family>
+         <pointsize>-1</pointsize>
+         <fontweight>DemiBold</fontweight>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton{
   background-color: #000000;
   border: 2px solid #1A1A1A;
   border-radius: 15px;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   margin: 0;
   min-height: 14px;
@@ -129,19 +137,26 @@ QPushButton {
 }</string>
        </property>
        <property name="text">
-        <string>Choose</string>
+        <string>CHOOSE</string>
        </property>
       </widget>
      </item>
      <item alignment="Qt::AlignBottom">
       <widget class="QPushButton" name="pushButton_3">
+       <property name="font">
+        <font>
+         <family>Fixedsys</family>
+         <pointsize>-1</pointsize>
+         <fontweight>DemiBold</fontweight>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton{
   background-color: #000000;
   border: 2px solid #1A1A1A;
   border-radius: 15px;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   margin: 0;
   min-height: 14px;
@@ -168,7 +183,7 @@ QPushButton {
 }</string>
        </property>
        <property name="text">
-        <string>Delete</string>
+        <string>DELETE</string>
        </property>
       </widget>
      </item>

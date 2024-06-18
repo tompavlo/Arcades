@@ -23,9 +23,14 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+signals:
+    void tokenValueChanged();
+
 private:
     Ui::UsersManipulation *ui;
     QSqlTableModel* model;
+    QSqlDatabase data;
+
 };
 
 #endif // USERSMANIPULATION_H

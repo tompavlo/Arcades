@@ -298,6 +298,7 @@ Arcades_autogen/timestamp: \
 	E:/Qt/6.7.1/mingw_64/include/QtGui/qvalidator.h \
 	E:/Qt/6.7.1/mingw_64/include/QtGui/qwindowdefs.h \
 	E:/Qt/6.7.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+	E:/Qt/6.7.1/mingw_64/include/QtSql/QSqlDatabase \
 	E:/Qt/6.7.1/mingw_64/include/QtSql/QtSql \
 	E:/Qt/6.7.1/mingw_64/include/QtSql/QtSqlDepends \
 	E:/Qt/6.7.1/mingw_64/include/QtSql/qsqldatabase.h \

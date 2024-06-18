@@ -142,6 +142,11 @@ E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Arcades_au
   E:/Qt/6.7.1/mingw_64/include/QtGui/qtransform.h \
   E:/Qt/6.7.1/mingw_64/include/QtGui/qwindowdefs.h \
   E:/Qt/6.7.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  E:/Qt/6.7.1/mingw_64/include/QtSql/QSqlDatabase \
+  E:/Qt/6.7.1/mingw_64/include/QtSql/qsqldatabase.h \
+  E:/Qt/6.7.1/mingw_64/include/QtSql/qtsql-config.h \
+  E:/Qt/6.7.1/mingw_64/include/QtSql/qtsqlexports.h \
+  E:/Qt/6.7.1/mingw_64/include/QtSql/qtsqlglobal.h \
   E:/Qt/6.7.1/mingw_64/include/QtWidgets/QMainWindow \
   E:/Qt/6.7.1/mingw_64/include/QtWidgets/qmainwindow.h \
   E:/Qt/6.7.1/mingw_64/include/QtWidgets/qsizepolicy.h \

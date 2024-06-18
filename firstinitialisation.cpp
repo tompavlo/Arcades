@@ -39,10 +39,8 @@ void firstInitialisation::on_pushButton_clicked()
         error.exec();
         return;
     }
-    QSqlDatabase data = QSqlDatabase::addDatabase("QSQLITE");
-    data.setDatabaseName("./../../db/users.db");
+    QSqlDatabase data = QSqlDatabase::database("MainConnection");
     QSqlQuery query(data);
-    data.open();
     query.prepare("INSERT INTO users (user_name) VALUES (:username);");
     query.bindValue(":username", username);
     query.exec();

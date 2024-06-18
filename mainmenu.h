@@ -2,6 +2,7 @@
 #define MAINMENU_H
 
 #include <QMainWindow>
+#include <QSqlDatabase>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,8 +21,10 @@ public:
 private slots:
     void on_pushButton_clicked();
     void onLabelClicked();
+    void updateTokensView();
 
 private:
     Ui::MainMenu *ui;
+    QSqlDatabase data;
 };
 #endif // MAINMENU_H
