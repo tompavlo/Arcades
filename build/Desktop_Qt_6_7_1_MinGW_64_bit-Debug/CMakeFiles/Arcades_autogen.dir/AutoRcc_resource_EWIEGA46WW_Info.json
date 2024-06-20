@@ -9,7 +9,12 @@
 	"INCLUDE_DIR" : "E:/projects/Arcades/Arcades/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Arcades_autogen/include",
 	"INPUTS" : 
 	[
+		"E:/projects/Arcades/Arcades/text/tik-tak-toe.txt",
+		"E:/projects/Arcades/Arcades/text/tetris.txt",
+		"E:/projects/Arcades/Arcades/text/snake.txt",
+		"E:/projects/Arcades/Arcades/icons/tictactoe.png",
 		"E:/projects/Arcades/Arcades/icons/tocken blue.png",
+		"E:/projects/Arcades/Arcades/icons/info gray.png",
 		"E:/projects/Arcades/Arcades/icons/profile-user.png",
 		"E:/projects/Arcades/Arcades/font/PressStart2P-Regular.ttf"
 	],

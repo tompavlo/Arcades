@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     data.setDatabaseName(dbPath);
     data.open();
     MainMenu w;
-    w.setFixedSize(1000,766);
+    w.setFixedSize(1100,766);
 
     QSqlQuery query(data);
     query.exec("SELECT COUNT(*) FROM users;");

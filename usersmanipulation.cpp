@@ -9,6 +9,15 @@
 #include <QStandardItemModel>
 #include <QModelIndex>
 
+class ReadOnlyDelegate : public QStyledItemDelegate
+{
+public:
+    ReadOnlyDelegate(QObject *parent = nullptr) : QStyledItemDelegate(parent){}
+    QWidget *createEditor(QWidget* parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override{
+        return nullptr;
+    }
+};
+
 UsersManipulation::UsersManipulation(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::UsersManipulation)
@@ -35,6 +44,7 @@ UsersManipulation::UsersManipulation(QWidget *parent)
 
     ui->tableView->hideColumn(0);
     ui->tableView->hideColumn(2);
+    ui->tableView->setItemDelegateForColumn(1, new ReadOnlyDelegate(this));
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
@@ -94,14 +104,36 @@ void UsersManipulation::on_pushButton_3_clicked()
             error.exec();
             return;
         }
-        else {
-            if(QMessageBox::Yes == QMessageBox::question(nullptr, "Delete confirmation", "Are you sure?", QMessageBox::Yes | QMessageBox::No)){
-        model->removeRow(row);
-        model->submitAll();
-        model->select();
+        else if(QMessageBox::Yes == QMessageBox::question(nullptr, "Delete confirmation", "Are you sure?", QMessageBox::Yes | QMessageBox::No)){
+            QSettings settings("Tompavlo", "Arcades");
+            QModelIndex idIndex = model->index(row, 0);
+            QString userId = model->data(idIndex).toString();
+            QSqlQuery query(data);
+            query.exec("PRAGMA foreign_keys = ON");
+            if(userId==settings.value("lastChoosenUser", "")) {
+                query.exec("SELECT id FROM users ORDER BY id");
+                QString newUserId;
+                QString previousUserId;
+                while(query.next()){
+                    newUserId=query.value(0).toString();
+                    if(newUserId==userId){
+                        if(query.next()){
+                            newUserId = query.value(0).toString();
+                            previousUserId = newUserId;
+                            break;
+                        }
+                        else break;
+                    }
+                    previousUserId = newUserId;
+                }
+                settings.setValue("lastChoosenUser", previousUserId);
+                emit tokenValueChanged();
+            }
+            model->removeRow(row);
+            model->submitAll();
+            model->select();
+            }
         }
-        }
-    }
     else {
         QMessageBox error;
         error.setText("Select a user to remove.");

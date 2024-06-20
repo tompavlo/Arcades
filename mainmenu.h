@@ -22,9 +22,26 @@ private slots:
     void on_pushButton_clicked();
     void onLabelClicked();
     void updateTokensView();
+    bool isGamePurchased(QString gameId);
+    void launchGameChoosingPage();
+    void on_pushButton_toMainMenu_clicked();
+    void dbLogic();
+    void onGame1LabelClicked();
+    void onGame2LabelClicked();
+    void onGame3LabelClicked();
+
+
+    void on_pushButton_PlayOrBuy_clicked();
+
+    void on_pushButton_PlayOrBuy_2_clicked();
+
+    void on_pushButton_PlayOrBuy_3_clicked();
 
 private:
     Ui::MainMenu *ui;
     QSqlDatabase data;
+    int id;
+    QString family;
+    QFont pixelFont;
 };
 #endif // MAINMENU_H

@@ -1,0 +1,13 @@
+Tokens: for every win you will get 10 tokens. For every draw 5 tokens.
+
+Description: Tic-Tac-Toe, also known as Noughts and Crosses, is a simple yet strategic two-player game. It is played on a 3x3 grid where the aim is to create a line of three of your symbols, either X or O, horizontally, vertically, or diagonally. Despite its straightforward rules, Tic-Tac-Toe can be surprisingly complex and requires foresight and planning to outmaneuver your opponent. It is a classic game that is enjoyed by people of all ages and serves as an excellent introduction to game theory and basic strategic thinking.
+
+Rules: The game is played on a 3x3 grid, which can be drawn on paper or displayed on a digital platform. One player chooses X and the other chooses O. Players decide who goes first, often by a coin toss.
+
+Players take turns placing their symbol (X or O) in an empty cell of the grid. The first player places their symbol in any one of the nine available cells. The second player then places their symbol in any of the remaining cells. This process continues, with players alternating turns, until the game is either won or ends in a draw.
+
+The objective is to be the first to form a continuous line of three of your symbols. A line can be horizontal, vertical, or diagonal. If a player succeeds in forming such a line, they immediately win the game.
+
+If all nine cells are filled and neither player has formed a line of three symbols, the game ends in a draw. In this case, neither player is declared the winner.
+
+Players should aim to block their opponent from forming a line of three while trying to create their own line. Anticipating the opponent's moves and planning several moves ahead is crucial for success.

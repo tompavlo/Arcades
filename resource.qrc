@@ -5,5 +5,12 @@
     <qresource prefix="/icon">
         <file>icons/profile-user.png</file>
         <file>icons/tocken blue.png</file>
+        <file>icons/info gray.png</file>
+        <file>icons/tictactoe.png</file>
+    </qresource>
+    <qresource prefix="/text">
+        <file>text/tik-tak-toe.txt</file>
+        <file>text/snake.txt</file>
+        <file>text/tetris.txt</file>
     </qresource>
 </RCC>

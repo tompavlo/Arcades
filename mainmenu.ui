@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
+    <width>1100</width>
     <height>766</height>
    </rect>
   </property>
@@ -21,10 +21,13 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>80</y>
-      <width>1000</width>
-      <height>680</height>
+      <y>59</y>
+      <width>1100</width>
+      <height>701</height>
      </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QWidget" name="layoutWidget">
@@ -32,7 +35,7 @@
        <rect>
         <x>0</x>
         <y>320</y>
-        <width>1001</width>
+        <width>1101</width>
         <height>281</height>
        </rect>
       </property>
@@ -47,13 +50,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>350</width>
-           <height>56</height>
+           <width>360</width>
+           <height>60</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
+           <width>360</width>
            <height>16777215</height>
           </size>
          </property>
@@ -75,10 +78,10 @@
   border: 2px solid #1A1A1A;
   border-radius: 15px;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   margin: 0;
-  min-height: 20px;
+  min-height: 24px;
   padding: 16px 24px;
   text-align: center;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -92,11 +95,11 @@ QPushButton:hover {
   margin: 0 0 6px 0;
 }
 
-QPushButto:pressed {
-  background-color: #000000;
-  border: 2px solid #1A1A1A;
-  box-shadow: none;
-  margin: 0 0 8px 0;
+QPushButton:pressed {
+  background-color: #1A1A1A;
+  border: 2px solid #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0 0 6px 0;
 }
 
 QPushButton {
@@ -118,13 +121,13 @@ QPushButton {
          </property>
          <property name="minimumSize">
           <size>
-           <width>350</width>
-           <height>56</height>
+           <width>360</width>
+           <height>60</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
+           <width>360</width>
            <height>16777215</height>
           </size>
          </property>
@@ -136,6 +139,237 @@ QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton{
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  min-height: 24px;
+  padding: 16px 24px;
+  text-align: center;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  width: 100%;
+}
+
+QPushButton:hover {
+  background-color: #333333;
+  border: 2px solid #555555;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  margin: 0 0 6px 0;
+}
+
+QPushButton:pressed {
+  background-color: #1A1A1A;
+  border: 2px solid #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0 0 6px 0;
+}
+QPushButton {
+  outline: none; 
+}</string>
+         </property>
+         <property name="text">
+          <string>SOUND SETTINGS</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>360</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>360</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  min-height: 24px;
+  padding: 16px 24px;
+  text-align: center;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  width: 100%;
+}
+
+QPushButton:hover {
+  background-color: #333333;
+  border: 2px solid #555555;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  margin: 0 0 6px 0;
+}
+
+QPushButton:pressed {
+  background-color: #1A1A1A;
+  border: 2px solid #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0 0 6px 0;
+}
+
+QPushButton {
+  outline: none; 
+}</string>
+         </property>
+         <property name="text">
+          <string>EXIT</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>600</y>
+        <width>1101</width>
+        <height>62</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QPushButton" name="pushButton_toMainMenu">
+         <property name="minimumSize">
+          <size>
+           <width>360</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>360</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  min-height: 24px;
+  padding: 16px 24px;
+  text-align: center;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  width: 100%;
+}
+
+QPushButton:hover {
+  background-color: #333333;
+  border: 2px solid #555555;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  margin: 0 0 6px 0;
+}
+
+QPushButton:pressed {
+  background-color: #1A1A1A;
+  border: 2px solid #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0 0 6px 0;
+}
+
+QPushButton {
+  outline: none; 
+}
+</string>
+         </property>
+         <property name="text">
+          <string>RETURN TO MAIN MENU</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>20</y>
+        <width>1101</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="gameName_2">
+           <property name="styleSheet">
+            <string notr="true">color:white;
+font-size:16px;</string>
+           </property>
+           <property name="text">
+            <string>Tic-Tac-Toe</string>
+           </property>
+          </widget>
+         </item>
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="gameScreenshot_2">
+           <property name="maximumSize">
+            <size>
+             <width>250</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="resource.qrc">:/icon/icons/tictactoe.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QPushButton" name="pushButton_PlayOrBuy">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>56</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>9999999</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
   background-color: #000000;
   border: 2px solid #1A1A1A;
   border-radius: 15px;
@@ -167,40 +401,66 @@ QPushButto:pressed {
 QPushButton {
   outline: none; 
 }</string>
-         </property>
-         <property name="text">
-          <string>SOUND SETTINGS</string>
-         </property>
-        </widget>
+             </property>
+             <property name="text">
+              <string>PLAY</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </item>
-       <item alignment="Qt::AlignHCenter">
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>350</width>
-           <height>56</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>300</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+          <widget class="QLabel" name="gameName">
+           <property name="styleSheet">
+            <string notr="true">color:white;
+font-size:16px;</string>
+           </property>
+           <property name="text">
+            <string>Snake</string>
+           </property>
+          </widget>
+         </item>
+         <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+          <widget class="QLabel" name="gameScreenshot">
+           <property name="maximumSize">
+            <size>
+             <width>250</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="resource.qrc">:/icon/icons/tictactoe.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+            <widget class="QPushButton" name="pushButton_PlayOrBuy_2">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>56</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>9999999</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
   background-color: #000000;
   border: 2px solid #1A1A1A;
   border-radius: 15px;
@@ -223,30 +483,124 @@ QPushButton:hover {
 }
 
 QPushButto:pressed {
-  background-color: #000000;
-  border: 2px solid #1A1A1A;
-  box-shadow: none;
-  margin: 0 0 8px 0;
+  background-color: #FF6347;
+         border: 2px solid #FF4500;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        margin: 0 0 6px 0;
 }
 
 QPushButton {
   outline: none; 
 }</string>
-         </property>
-         <property name="text">
-          <string>EXIT</string>
-         </property>
-        </widget>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="gameName_3">
+           <property name="styleSheet">
+            <string notr="true">color:white;
+font-size:16px;</string>
+           </property>
+           <property name="text">
+            <string>Tetris</string>
+           </property>
+          </widget>
+         </item>
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="gameScreenshot_3">
+           <property name="maximumSize">
+            <size>
+             <width>250</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="resource.qrc">:/icon/icons/tictactoe.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QPushButton" name="pushButton_PlayOrBuy_3">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>56</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>9999999</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  min-height: 20px;
+  padding: 16px 24px;
+  text-align: center;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  width: 100%;
+}
+
+QPushButton:hover {
+  background-color: #333333;
+  border: 2px solid #555555;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  margin: 0 0 6px 0;
+}
+
+QPushButto:pressed {
+  background-color: #FF6347;
+         border: 2px solid #FF4500;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        margin: 0 0 6px 0;
+}
+
+QPushButton {
+  outline: none; 
+}</string>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_2"/>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>940</x>
       <y>0</y>
       <width>161</width>
       <height>92</height>
@@ -275,7 +629,7 @@ QPushButton {
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+     <item>
       <widget class="QLabel" name="tokenValue">
        <property name="minimumSize">
         <size>
@@ -315,13 +669,15 @@ color:purple;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
+     <width>1100</width>
      <height>26</height>
     </rect>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton_3</sender>
