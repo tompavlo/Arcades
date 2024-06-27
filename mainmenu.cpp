@@ -4,13 +4,19 @@
 #include <QtSql>
 #include "clickablelabel.h"
 #include "usersmanipulation.h"
+#include "tictactoe.h"
 #include <QMessageBox>
 #include <QFormLayout>
 #include <QTextEdit>
+#include <QSlider>
+#include <QtMultimedia/QtMultimedia>
+#include <QAudioOutput>
+
+
 
 class InfoDialog : public QDialog{
 public:
-    InfoDialog(QWidget *parent= nullptr, const QPixmap &image = QPixmap(), const  QString &filePath=QString()) : QDialog(parent){
+    InfoDialog(QWidget *parent= nullptr, const QPixmap &image = QPixmap(), const  QString &filePath=QString(), QMediaPlayer *sound = nullptr) : QDialog(parent){
         QFormLayout *layout = new QFormLayout(this);
         QLabel *imageLabel = new QLabel(this);
         QPixmap resizableImage = image;
@@ -66,7 +72,11 @@ public:
                           "QPushButton {"
                           "    outline: none;"
                           "}");
-        connect(ok, &QPushButton::clicked, this, &QDialog::close);
+        connect(ok, &QPushButton::clicked, this, [this, &sound](){
+            sound->setPosition(0);
+            sound->play();
+            this->close();
+        });
         layout->addRow(ok);
         setLayout(layout);
     }
@@ -79,6 +89,10 @@ MainMenu::MainMenu(QWidget *parent)
     , id (QFontDatabase::addApplicationFont(":/font/font/PressStart2P-Regular.ttf"))
     ,family(QFontDatabase::applicationFontFamilies(id).at(0))
     ,pixelFont(family)
+    ,music(new QMediaPlayer(this))
+    ,sound(new QMediaPlayer(this))
+    ,audioMusic(new QAudioOutput(this))
+    ,audioSound(new QAudioOutput(this))
 
 {
     ui->setupUi(this);
@@ -88,9 +102,23 @@ MainMenu::MainMenu(QWidget *parent)
     ui->pushButton_2->setFont(pixelFont);
     ui->pushButton_3->setFont(pixelFont);
 
+    music->setAudioOutput(audioMusic);
+    sound->setAudioOutput(audioSound);
+    music->setSource(QUrl("qrc:/sound/sound/Eric Skiff - Underclocked.mp3"));
+    sound->setSource(QUrl("qrc:/sound/sound/button-124476.mp3"));
+
+
+
+    QSettings settings("Tompavlo", "Arcades");
+
+    audioSound->setVolume((settings.value("soundVolume", 50).toFloat())/100);
+    audioMusic->setVolume((settings.value("musicVolume", 50).toFloat())/100);
+
+    music->play();
+
     QPixmap userIcon(":/icon/icons/profile-user.png");
     ClickableLabel* clickableLabel= new ClickableLabel(ui->page);
-    clickableLabel->setGeometry(8, 594, 72, 96);
+    clickableLabel->setGeometry(8, 610, 72, 96);
     userIcon=userIcon.scaled(clickableLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     clickableLabel->setPixmap(userIcon);
 
@@ -100,9 +128,16 @@ MainMenu::MainMenu(QWidget *parent)
     ui->tokenValue->setFont(pixelFont);
 
     connect(clickableLabel, &ClickableLabel::clicked, this, &MainMenu::onLabelClicked);
+    connect(music, &QMediaPlayer::mediaStatusChanged, [this](QMediaPlayer::MediaStatus status) {
+        if (status == QMediaPlayer::EndOfMedia) {
+            music->play();
+        }
+    });
+
     updateTokensView();
 
     launchGameChoosingPage();
+
 
 }
 
@@ -113,11 +148,15 @@ MainMenu::~MainMenu()
 
 void MainMenu::on_pushButton_clicked()
 {
+    sound->setPosition(0);
+    sound->play();
     ui->stackedWidget->setCurrentIndex(1);
     dbLogic();
 }
 
 void MainMenu::onLabelClicked(){
+    sound->setPosition(0);
+    sound->play();
     UsersManipulation* users = new UsersManipulation(this);
     connect(users, &UsersManipulation::tokenValueChanged, this, &MainMenu::updateTokensView);
     users->setModal(true);
@@ -125,23 +164,29 @@ void MainMenu::onLabelClicked(){
 }
 
 void MainMenu::onGame1LabelClicked(){
-    QPixmap tiktaktoePhotо(":/icon/icons/tictactoe.png");
+    sound->setPosition(0);
+    sound->play();
+    QPixmap tiktaktoePhotо(":/icon/icons/tictactoeScreenshot.png");
     QString textFilePath(":/text/text/tik-tak-toe.txt");
-    InfoDialog infoTicTacToe(this, tiktaktoePhotо, textFilePath);
+    InfoDialog infoTicTacToe(this, tiktaktoePhotо, textFilePath, sound);
     infoTicTacToe.exec();
 }
 
 void MainMenu::onGame2LabelClicked(){
-    QPixmap tiktaktoePhotо(":/icon/icons/tictactoe.png");
+    sound->setPosition(0);
+    sound->play();
+    QPixmap tiktaktoePhotо(":/icon/icons/snake.png");
     QString textFilePath(":/text/text/snake.txt");
-    InfoDialog infoTicTacToe(this, tiktaktoePhotо, textFilePath);
+    InfoDialog infoTicTacToe(this, tiktaktoePhotо, textFilePath, sound);
     infoTicTacToe.exec();
 }
 
 void MainMenu::onGame3LabelClicked(){
-    QPixmap tiktaktoePhotо(":/icon/icons/tictactoe.png");
+    sound->setPosition(0);
+    sound->play();
+    QPixmap tiktaktoePhotо(":/icon/icons/Typical_Tetris_Game.png");
     QString textFilePath(":/text/text/tetris.txt");
-    InfoDialog infoTicTacToe(this, tiktaktoePhotо, textFilePath);
+    InfoDialog infoTicTacToe(this, tiktaktoePhotо, textFilePath, sound);
     infoTicTacToe.exec();
 }
 
@@ -177,6 +222,8 @@ bool MainMenu::isGamePurchased(QString gameId){
 
 void MainMenu::on_pushButton_toMainMenu_clicked()
 {
+    sound->setPosition(0);
+    sound->play();
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -234,12 +281,21 @@ void MainMenu::dbLogic(){
 
 void MainMenu::on_pushButton_PlayOrBuy_clicked()
 {
+    sound->setPosition(0);
+    sound->play();
+    QThread::msleep(300);
+    music->stop();
+    this->close();
+    TicTacToe* tictactoe = new TicTacToe;
+    tictactoe->show();
 
 }
 
 
 void MainMenu::on_pushButton_PlayOrBuy_2_clicked()
 {
+    sound->setPosition(0);
+    sound->play();
     if(ui->pushButton_PlayOrBuy_2->text()=="BUY"){
         if(QMessageBox::Yes == QMessageBox::question(nullptr, "Buy confirmation",
                                                       "Price of the game is 100 tokens. Confirm please.",
@@ -274,6 +330,8 @@ void MainMenu::on_pushButton_PlayOrBuy_2_clicked()
 
 void MainMenu::on_pushButton_PlayOrBuy_3_clicked()
 {
+    sound->setPosition(0);
+    sound->play();
     if(ui->pushButton_PlayOrBuy_3->text()=="BUY"){
         if(QMessageBox::Yes == QMessageBox::question(nullptr, "Buy confirmation",
                                                       "Price of the game is 500 tokens. Confirm please.",
@@ -303,5 +361,126 @@ void MainMenu::on_pushButton_PlayOrBuy_3_clicked()
     else {
 
     }
+}
+
+
+void MainMenu::on_pushButton_2_clicked()
+{
+    sound->setPosition(0);
+    sound->play();
+
+    QDialog volumeMaster(this);
+    QFont pixelFontV2("Fixedsys");
+    QSettings settings("Tompavlo", "Arcades");
+    QVBoxLayout *layout = new QVBoxLayout;
+    QLabel *soundVolume = new QLabel;
+    QLabel *musicVolume = new QLabel;
+    QSlider *soundSlider = new QSlider(Qt::Horizontal);
+    QSlider *musicSlider = new QSlider(Qt::Horizontal);
+    QPushButton *close = new QPushButton;
+    QLabel *soundLevel = new QLabel;
+    QLabel *musicLevel = new QLabel;
+    QHBoxLayout *sliderLayout_1 = new QHBoxLayout;
+    QHBoxLayout *sliderLayout_2= new QHBoxLayout;
+
+    musicVolume->setText("MUSIC VOLUME");
+    soundVolume->setText("SOUND VOLUME");
+    musicVolume->setFont(pixelFont);
+    soundVolume->setFont(pixelFont);
+    musicVolume->setStyleSheet("QLabel { color : white; }");
+    soundVolume->setStyleSheet("QLabel { color : white; }");
+
+    soundLevel->setText(settings.value("soundVolume", 50).toString() + " %");
+    musicLevel->setText(settings.value("musicVolume", 50).toString() + " %");
+    soundLevel->setFont(pixelFontV2);
+    musicLevel->setFont(pixelFontV2);
+    soundLevel->setStyleSheet("QLabel { color : white; }");
+    musicLevel->setStyleSheet("QLabel { color : white; }");
+    musicLevel->setMinimumWidth(40);
+    soundLevel->setMinimumWidth(40);
+
+    soundSlider->setValue(settings.value("soundVolume", 50).toInt());
+    musicSlider->setValue(settings.value("musicVolume", 50).toInt());
+
+    musicSlider->setRange(0, 100);
+    soundSlider->setRange(0, 100);
+
+    sliderLayout_1->addWidget(musicSlider);
+    sliderLayout_1->addWidget(musicLevel);
+    sliderLayout_2->addWidget(soundSlider);
+    sliderLayout_2->addWidget(soundLevel);
+
+    layout->addWidget(musicVolume);
+    layout->addLayout(sliderLayout_1);
+    layout->addWidget(soundVolume);
+    layout->addLayout(sliderLayout_2);
+    layout->addWidget(close);
+    close->setFont(pixelFont);
+
+    close->setText("CLOSE");
+
+    volumeMaster.resize(300,150);
+    close->setStyleSheet(("QPushButton {"
+                          "    background-color: #000000;"
+                          "    border: 2px solid #1A1A1A;"
+                          "    border-radius: 15px;"
+                          "    color: #FFFFFF;"
+                          "    font-size: 14px;"
+                          "    font-weight: 600;"
+                          "    margin: 0;"
+                          "    min-height: 16px;"
+                          "    padding: 16px 24px;"
+                          "    text-align: center;"
+                          "    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);"
+                          "    width: 100%;"
+                          "}"
+                          "QPushButton:hover {"
+                          "    background-color: #333333;"
+                          "    border: 2px solid #555555;"
+                          "    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);"
+                          "    margin: 0 0 4px 0;"
+                          "}"
+                          "QPushButton:pressed {"
+                          "background-color: #1A1A1A;"
+                          "border: 2px solid #333333;"
+                          "box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);"
+                          "margin: 0 0 2px 0;"
+                          "}"
+                          "QPushButton {"
+                          "    outline: none;"
+                          "}"));
+    volumeMaster.setLayout(layout);
+    volumeMaster.setWindowTitle("Sound settings");
+
+    connect(close, &QPushButton::clicked, &volumeMaster, [this, &volumeMaster](){
+        sound->setPosition(0);
+        sound->play();
+        volumeMaster.close();
+    });
+
+    connect(musicSlider, &QSlider::valueChanged, musicLevel, [this, musicLevel, &settings](int value){
+        musicLevel->setText(QString::number(value) +" %");
+        settings.setValue("musicVolume", value);
+        audioMusic->setVolume((settings.value("musicVolume", 50).toFloat())/100);
+    });
+
+    connect(soundSlider, &QSlider::valueChanged, soundLevel, [this, soundLevel, &settings](int value){
+        soundLevel->setText(QString::number(value) + " %");
+        settings.setValue("soundVolume", value);
+        audioSound->setVolume((settings.value("soundVolume", 50).toFloat())/100);
+    });
+
+
+    volumeMaster.exec();
+
+}
+
+
+void MainMenu::on_pushButton_3_clicked()
+{
+    sound->setPosition(0);
+    sound->play();
+    QThread::msleep(300);
+    this->close();
 }
 

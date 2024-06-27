@@ -9,38 +9,41 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
-find_package(Qt6 REQUIRED COMPONENTS Core Sql)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Multimedia Sql)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Multimedia Sql)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainmenu.cpp
-        mainmenu.h
-        mainmenu.ui
+    main.cpp
+    mainmenu.cpp
+    mainmenu.h
+    mainmenu.ui
+    resource.qrc
+    clickablelabel.h
+    clickablelabel.cpp
+    firstinitialisation.h
+    firstinitialisation.cpp
+    firstinitialisation.ui
+    usersmanipulation.h
+    usersmanipulation.cpp
+    usersmanipulation.ui
+
 )
 
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    set(app_icon_resource_windows "${CMAKE_CURRENT_SOURCE_DIR}/icons/icon.rc")
     qt_add_executable(Arcades
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        resource.qrc
-        clickablelabel.h clickablelabel.cpp
-        firstinitialisation.h firstinitialisation.cpp firstinitialisation.ui
-        usersmanipulation.h usersmanipulation.cpp usersmanipulation.ui
-
+        ${app_icon_resource_windows}
+        tictactoe.h tictactoe.cpp tictactoe.ui
+        stylehelper.h stylehelper.cpp
     )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Arcades APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
         add_library(Arcades SHARED
             ${PROJECT_SOURCES}
         )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
         add_executable(Arcades
             ${PROJECT_SOURCES}
@@ -49,15 +52,12 @@ else()
 endif()
 
 target_link_libraries(Arcades PRIVATE
-       Qt${QT_VERSION_MAJOR}::Core
-       Qt${QT_VERSION_MAJOR}::Sql
-       Qt${QT_VERSION_MAJOR}::Widgets
-   )
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Sql
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Multimedia
+)
 
-
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
   set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Arcades)
 endif()

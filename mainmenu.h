@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QSqlDatabase>
+#include <QtMultimedia/QtMultimedia>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,6 +18,7 @@ class MainMenu : public QMainWindow
 public:
     MainMenu(QWidget *parent = nullptr);
     ~MainMenu();
+
 
 private slots:
     void on_pushButton_clicked();
@@ -37,11 +39,21 @@ private slots:
 
     void on_pushButton_PlayOrBuy_3_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainMenu *ui;
     QSqlDatabase data;
     int id;
     QString family;
     QFont pixelFont;
+    QMediaPlayer* music;
+    QMediaPlayer* sound;
+    QAudioOutput* audioMusic;
+    QAudioOutput* audioSound;
+
+
 };
 #endif // MAINMENU_H

@@ -12,6 +12,9 @@ int main(int argc, char *argv[])
     QString dbPath = "./../../db/users.db";
     data.setDatabaseName(dbPath);
     data.open();
+
+    QSettings settings("Tompavlo", "Arcades");
+
     MainMenu w;
     w.setFixedSize(1100,766);
 

@@ -3,7 +3,8 @@
 #include <QFontDatabase>
 #include <QtSql>
 #include <QMessageBox>
-
+#include <QMediaPlayer>
+#include <QAudioOutput>
 
 
 firstInitialisation::firstInitialisation(QWidget *parent)
@@ -30,6 +31,14 @@ firstInitialisation::~firstInitialisation()
 
 void firstInitialisation::on_pushButton_clicked()
 {
+    QMediaPlayer *sound = new QMediaPlayer(this);
+    QAudioOutput *levelSound = new QAudioOutput(this);
+    QThread::msleep(300);
+    sound->setAudioOutput(levelSound);
+    levelSound->setVolume(0.5);
+    sound->setSource(QUrl("qrc:/sound/sound/button-124476.mp3"));
+    sound->setPosition(0);
+    sound->play();
     QString username = ui->lineEdit->text().trimmed();
     if(username.isEmpty()){
         QMessageBox error;
@@ -44,6 +53,10 @@ void firstInitialisation::on_pushButton_clicked()
     query.prepare("INSERT INTO users (user_name) VALUES (:username);");
     query.bindValue(":username", username);
     query.exec();
+
+    QVariant userIdVariant = query.lastInsertId();
+    QSettings settings("Tompavlo", "Arcades");
+    settings.setValue("lastChoosenUser", userIdVariant.toInt());
 
     this->close();
 }

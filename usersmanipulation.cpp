@@ -1,5 +1,6 @@
 #include "usersmanipulation.h"
 #include "ui_usersmanipulation.h"
+#include "mainmenu.h"
 #include <QtSql>
 #include <QSqlDatabase>
 #include <QFontDatabase>
@@ -21,10 +22,13 @@ public:
 UsersManipulation::UsersManipulation(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::UsersManipulation)
+    ,sound(new QMediaPlayer)
+    ,audioSound(new QAudioOutput)
 
 {
     ui->setupUi(this);
     this->setWindowTitle("Users");
+    this->resize(425, 300);
 
     data = QSqlDatabase::database("MainConnection");
 
@@ -32,6 +36,11 @@ UsersManipulation::UsersManipulation(QWidget *parent)
     model->setTable("users");
     model->select();
     model->setHeaderData(1, Qt::Horizontal, tr("Username"));
+
+    sound->setAudioOutput(audioSound);
+    sound->setSource(QUrl("qrc:/sound/sound/button-124476.mp3"));
+    QSettings settings("Tompavlo", "Arcades");
+    audioSound->setVolume((settings.value("soundVolume", 50).toFloat())/100);
 
     ui->tableView->setModel(model);
 
@@ -44,6 +53,7 @@ UsersManipulation::UsersManipulation(QWidget *parent)
 
     ui->tableView->hideColumn(0);
     ui->tableView->hideColumn(2);
+    ui->tableView->verticalHeader()->setVisible(false);
     ui->tableView->setItemDelegateForColumn(1, new ReadOnlyDelegate(this));
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
@@ -55,6 +65,8 @@ UsersManipulation::~UsersManipulation()
 
 void UsersManipulation::on_pushButton_clicked()
 {
+    sound->setPosition(0);
+    sound->play();
     QString username = ui->lineEdit->text().trimmed();
     if(username.isEmpty()){
         QMessageBox error;
@@ -78,6 +90,8 @@ void UsersManipulation::on_pushButton_clicked()
 
 void UsersManipulation::on_pushButton_2_clicked()
 {
+    sound->setPosition(0);
+    sound->play();
     QModelIndexList selectedIndex = ui->tableView->selectionModel()->selectedIndexes();
     if(!selectedIndex.empty()){
         int userTokens=0;
@@ -93,6 +107,8 @@ void UsersManipulation::on_pushButton_2_clicked()
 
 void UsersManipulation::on_pushButton_3_clicked()
 {
+    sound->setPosition(0);
+    sound->play();
     QModelIndexList selectedIndex = ui->tableView->selectionModel()->selectedIndexes();
     if(!selectedIndex.isEmpty()){
         int row = selectedIndex.first().row();

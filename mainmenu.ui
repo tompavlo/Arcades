@@ -23,11 +23,11 @@
       <x>0</x>
       <y>59</y>
       <width>1100</width>
-      <height>701</height>
+      <height>700</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QWidget" name="layoutWidget">
@@ -36,7 +36,7 @@
         <x>0</x>
         <y>320</y>
         <width>1101</width>
-        <height>281</height>
+        <height>328</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -242,6 +242,25 @@ QPushButton {
        </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="logo">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>90</y>
+        <width>781</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/icon/icons/logo.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QWidget" name="verticalLayoutWidget_2">
@@ -329,7 +348,7 @@ QPushButton {
 font-size:16px;</string>
            </property>
            <property name="text">
-            <string>Tic-Tac-Toe</string>
+            <string>TIC-TAC-TOE</string>
            </property>
           </widget>
          </item>
@@ -345,7 +364,7 @@ font-size:16px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon/icons/tictactoe.png</pixmap>
+            <pixmap resource="resource.qrc">:/icon/icons/tictactoeScreenshot.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -391,11 +410,11 @@ QPushButton:hover {
   margin: 0 0 6px 0;
 }
 
-QPushButto:pressed {
-  background-color: #FF6347;
-         border: 2px solid #FF4500;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        margin: 0 0 6px 0;
+QPushButton:pressed {
+  background-color: #1A1A1A;
+  border: 2px solid #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0 0 6px 0;
 }
 
 QPushButton {
@@ -420,7 +439,7 @@ QPushButton {
 font-size:16px;</string>
            </property>
            <property name="text">
-            <string>Snake</string>
+            <string>SNAKE</string>
            </property>
           </widget>
          </item>
@@ -436,7 +455,7 @@ font-size:16px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon/icons/tictactoe.png</pixmap>
+            <pixmap resource="resource.qrc">:/icon/icons/snake.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -482,11 +501,11 @@ QPushButton:hover {
   margin: 0 0 6px 0;
 }
 
-QPushButto:pressed {
-  background-color: #FF6347;
-         border: 2px solid #FF4500;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        margin: 0 0 6px 0;
+QPushButton:pressed {
+  background-color: #1A1A1A;
+  border: 2px solid #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0 0 6px 0;
 }
 
 QPushButton {
@@ -511,7 +530,7 @@ QPushButton {
 font-size:16px;</string>
            </property>
            <property name="text">
-            <string>Tetris</string>
+            <string>TETRIS</string>
            </property>
           </widget>
          </item>
@@ -527,7 +546,7 @@ font-size:16px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon/icons/tictactoe.png</pixmap>
+            <pixmap resource="resource.qrc">:/icon/icons/Typical_Tetris_Game.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -573,11 +592,11 @@ QPushButton:hover {
   margin: 0 0 6px 0;
 }
 
-QPushButto:pressed {
-  background-color: #FF6347;
-         border: 2px solid #FF4500;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        margin: 0 0 6px 0;
+QPushButton:pressed {
+  background-color: #1A1A1A;
+  border: 2px solid #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0 0 6px 0;
 }
 
 QPushButton {
@@ -678,22 +697,5 @@ color:purple;
  <resources>
   <include location="resource.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>pushButton_3</sender>
-   <signal>clicked()</signal>
-   <receiver>MainMenu</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>664</x>
-     <y>680</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>562</x>
-     <y>27</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

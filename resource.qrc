@@ -7,10 +7,22 @@
         <file>icons/tocken blue.png</file>
         <file>icons/info gray.png</file>
         <file>icons/tictactoe.png</file>
+        <file>icons/icon_png.png</file>
+        <file>icons/icon.rc</file>
+        <file>icons/logo.ico</file>
+        <file>icons/logo.png</file>
+        <file>icons/tictactoeScreenshot.png</file>
+        <file>icons/snake.png</file>
+        <file>icons/tetris.png</file>
+        <file>icons/Typical_Tetris_Game.png</file>
     </qresource>
     <qresource prefix="/text">
         <file>text/tik-tak-toe.txt</file>
         <file>text/snake.txt</file>
         <file>text/tetris.txt</file>
+    </qresource>
+    <qresource prefix="/sound">
+        <file>sound/button-124476.mp3</file>
+        <file>sound/Eric Skiff - Underclocked.mp3</file>
     </qresource>
 </RCC>

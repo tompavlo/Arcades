@@ -1,3 +1,5 @@
+Price: 100 tokens.
+
 Tokens: For every eaten apple 2 tokens. For every 20 sections of snake token award for eating apples will be multiplied by 2x. Rewards are given at the end of game.
 
 Description: Embark on a nostalgic journey with the Classic Snake Game! Maneuver your snake through the game grid, eat the food, and watch your snake grow longer with each bite. But beware, as the longer your snake gets, the harder it becomes to avoid collisions with the walls and your own tail. This timeless arcade game offers simple yet addictive gameplay that will keep you coming back for more!

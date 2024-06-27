@@ -1,6 +1,7 @@
 #ifndef USERSMANIPULATION_H
 #define USERSMANIPULATION_H
 
+#include <QtMultimedia/QtMultimedia>
 #include <QDialog>
 #include <QtSql>
 
@@ -30,6 +31,8 @@ private:
     Ui::UsersManipulation *ui;
     QSqlTableModel* model;
     QSqlDatabase data;
+    QMediaPlayer* sound;
+    QAudioOutput* audioSound;
 
 };
 

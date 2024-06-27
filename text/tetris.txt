@@ -1,3 +1,5 @@
+Price: 500 tokens.
+
 Tokens: For every cleared line 5 tokens. For every block putted - 2 tokens. Points are rewarded at the end of the game.
 
 Description: Experience the timeless excitement of the Classic Tetris Game! Arrange the falling Tetriminos to form complete lines and clear the game board. As you progress, the speed increases, challenging your reflexes and strategic thinking. Perfectly balance speed and precision to prevent the stack from reaching the top. This iconic puzzle game offers endless fun and requires both quick decision-making and strategic planning.
