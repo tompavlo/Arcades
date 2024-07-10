@@ -317,7 +317,7 @@ void MainMenu::on_pushButton_PlayOrBuy_2_clicked()
                 query.bindValue(":game_id", 2);
                 query.exec();
                 QMessageBox::information(nullptr,"Purchase Successful", "You have purchased the game. Have fun!");
-                ui->pushButton_PlayOrBuy->setText("PLAY");
+                ui->pushButton_PlayOrBuy_2->setText("PLAY");
                 updateTokensView();
             }
         }
@@ -353,7 +353,7 @@ void MainMenu::on_pushButton_PlayOrBuy_3_clicked()
                 query.bindValue(":game_id", 3);
                 query.exec();
                 QMessageBox::information(nullptr,"Purchase Successful", "You have purchased the game. Have fun!");
-                ui->pushButton_PlayOrBuy->setText("PLAY");
+                ui->pushButton_PlayOrBuy_3->setText("PLAY");
                 updateTokensView();
             }
         }
