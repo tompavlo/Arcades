@@ -286,7 +286,7 @@ void MainMenu::on_pushButton_PlayOrBuy_clicked()
     QThread::msleep(300);
     music->stop();
     this->close();
-    TicTacToe* tictactoe = new TicTacToe;
+    TicTacToe* tictactoe = new TicTacToe(data, this);
     tictactoe->show();
 
 }

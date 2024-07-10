@@ -18,7 +18,7 @@ class TicTacToe : public QDialog
     Q_OBJECT
 
 public:
-    explicit TicTacToe(QWidget *parent = nullptr);
+    explicit TicTacToe(QSqlDatabase db,QWidget *parent = nullptr);
     ~TicTacToe();
 
 private slots:
@@ -48,10 +48,13 @@ private slots:
 
     void gameEnd();
 
+    void updateToknes(int tokens);
+
 
 
 private:
     Ui::TicTacToe *ui;
+    QSqlDatabase data;
     int id;
     QString family;
     QFont pixelFont;
@@ -70,8 +73,6 @@ private:
     bool stop;
     char winner;
     QSettings settings;
-    QSqlDatabase db;
-    QSqlQuery query;
 
 };
 

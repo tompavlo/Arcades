@@ -6,18 +6,18 @@
 #include <QGridLayout>
 #include "stylehelper.h"
 #include <ctime>
+#include <QSqlError>
 
-TicTacToe::TicTacToe(QWidget *parent)
+TicTacToe::TicTacToe(QSqlDatabase db, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::TicTacToe)
+    ,data(db)
     , id (QFontDatabase::addApplicationFont(":/font/font/PressStart2P-Regular.ttf"))
     ,family(QFontDatabase::applicationFontFamilies(id).at(0))
     ,pixelFont(family)
     ,sound(new QMediaPlayer(this))
     ,audioSound(new QAudioOutput)
     ,settings("Tompavlo", "Arcades")
-    ,db(QSqlDatabase::database("MainConnection"))
-    ,query(db)
 
 {
     srand(time(nullptr));
@@ -235,9 +235,7 @@ void TicTacToe::checkGameEnd()
                 QString symbol=QChar(symbols[i]);
                 winner = symbols[i];
                 if(winner==player){
-                    query.prepare("UPDATE users SET tokens = 5 WHERE id = :id");
-                    query.bindValue(":id", settings.value("lastChoosenUser", ""));
-                    query.exec();
+                    updateToknes(5);
                     change_button_grid(row,0,StyleHelper::getFieldWinStyle(),symbol, true);
                     change_button_grid(row,1,StyleHelper::getFieldWinStyle(),symbol, true);
                     change_button_grid(row,2,StyleHelper::getFieldWinStyle(),symbol, true);
@@ -256,9 +254,7 @@ void TicTacToe::checkGameEnd()
                 QString symbol=QChar(symbols[i]);
                 winner = symbols[i];
                 if(winner==player){
-                    query.prepare("UPDATE users SET tokens = 5 WHERE id = :id");
-                    query.bindValue(":id", settings.value("lastChoosenUser", ""));
-                    query.exec();
+                    updateToknes(5);
                     change_button_grid(0,col,StyleHelper::getFieldWinStyle(),symbol, true);
                     change_button_grid(1,col,StyleHelper::getFieldWinStyle(),symbol, true);
                     change_button_grid(2,col,StyleHelper::getFieldWinStyle(),symbol, true);
@@ -276,9 +272,7 @@ void TicTacToe::checkGameEnd()
             QString symbol=QChar(symbols[i]);
             winner = symbols[i];
             if(winner==player){
-                query.prepare("UPDATE users SET tokens = 5 WHERE id = :id");
-                query.bindValue(":id", settings.value("lastChoosenUser", ""));
-                query.exec();
+                updateToknes(5);
                 change_button_grid(0,0,StyleHelper::getFieldWinStyle(),symbol, true);
                 change_button_grid(1,1,StyleHelper::getFieldWinStyle(),symbol, true);
                 change_button_grid(2,2,StyleHelper::getFieldWinStyle(),symbol, true);
@@ -295,9 +289,7 @@ void TicTacToe::checkGameEnd()
             QString symbol=QChar(symbols[i]);
             winner = symbols[i];
             if(winner==player){
-                query.prepare("UPDATE users SET tokens = 5 WHERE id = :id");
-                query.bindValue(":id", settings.value("lastChoosenUser", ""));
-                query.exec();
+                updateToknes(5);
                 change_button_grid(0,2,StyleHelper::getFieldWinStyle(),symbol, true);
                 change_button_grid(1,1,StyleHelper::getFieldWinStyle(),symbol, true);
                 change_button_grid(2,0,StyleHelper::getFieldWinStyle(),symbol, true);
@@ -312,9 +304,7 @@ void TicTacToe::checkGameEnd()
     }
     if(progress==9){
         stop = true;
-        query.prepare("UPDATE users SET tokens = 2 WHERE id = :id");
-        query.bindValue(":id", settings.value("lastChoosenUser", ""));
-        query.exec();
+        updateToknes(2);
     }
 }
 
@@ -334,5 +324,29 @@ void TicTacToe::gameEnd()
         ui->pushButton_0->setDisabled(false);
         ui->pushButton_x->setDisabled(false);
         gameStart=false;
+    }
+}
+
+void TicTacToe::updateToknes(int tokens)
+{
+    if (!data.isOpen()) {
+            qDebug() << "Error: Unable to open database connection.";
+            return;
+
+    }
+    QSqlQuery query(data);
+    query.prepare("SELECT tokens FROM users WHERE id = :id");
+    query.bindValue(":id", settings.value("lastChoosenUser", ""));
+    query.exec();
+    query.next();
+    int curTokens = query.value(0).toInt();
+    query.prepare("UPDATE users SET tokens = :tokens WHERE id = :id");
+    query.bindValue(":tokens", curTokens+tokens);
+    query.bindValue(":id", settings.value("lastChoosenUser", ""));
+
+    if (!query.exec()) {
+        qDebug() << "Error updating tokens:" << query.lastError().text();
+    } else {
+        qDebug() << "Tokens updated successfully for user:" << settings.value("lastChoosenUser", "").toString();
     }
 }

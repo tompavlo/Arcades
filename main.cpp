@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
         window.exec();
         QSqlDatabase data = QSqlDatabase::database("MainConnection");
         QSqlQuery query(data);
+        query.exec("PRAGMA foreign_keys = ON");
         query.exec("SELECT COUNT(*) FROM users;");
         if (query.next() && !(query.value(0).toInt() == 0)){
             w.show();

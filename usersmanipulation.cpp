@@ -125,7 +125,6 @@ void UsersManipulation::on_pushButton_3_clicked()
             QModelIndex idIndex = model->index(row, 0);
             QString userId = model->data(idIndex).toString();
             QSqlQuery query(data);
-            query.exec("PRAGMA foreign_keys = ON");
             if(userId==settings.value("lastChoosenUser", "")) {
                 query.exec("SELECT id FROM users ORDER BY id");
                 QString newUserId;
